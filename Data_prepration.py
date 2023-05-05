@@ -2,11 +2,11 @@
 
 def read_data():
     # Read data
-    f1 = open("C:/Users/simaa/Desktop/Concordia/TooT-BERT-SC/Datasets/Transpoter_substrates.fasta", 'r')
+    f1 = open("./Datasets/Transpoter_substrates.fasta", 'r')
     all_data = f1.readlines()
 
 
-    f2 = open("C:/Users/simaa/Desktop/Concordia/TooT-BERT-SC/Datasets/substrate_classes_all.csv", 'r')
+    f2 = open("./Datasets/substrate_classes_all.csv", 'r')
     next(f2)
     all_tags = f2.readlines()
 
