@@ -4,16 +4,16 @@ from torch.utils.data import Dataset
 def read_data():
     # Read data
     # Read data
-    f1 = open("/content/gdrive/My Drive/toot-sc-bert/datasets/transporter_substrate_class/Transpoter_substrates.fasta",
+    f1 = open("./Datasets/Transpoter_substrates.fasta",
               'r')
     all_data = f1.readlines()
 
-    f2 = open("/content/gdrive/My Drive/toot-sc-bert/datasets/transporter_substrate_class/substrate_classes_all.csv",
+    f2 = open("./Datasets/substrate_classes_all.csv",
               'r')
     next(f2)
     all_tags = f2.readlines()
 
-    f3 = open("/content/gdrive/My Drive/toot-sc-bert/datasets/transporter_substrate_class/substrate_classes_indep.csv",
+    f3 = open("./Datasets/substrate_classes_indep.csv",
               'r')
     next(f3)
     test_indep = f3.readlines()
