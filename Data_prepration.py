@@ -20,7 +20,6 @@ def read_data():
     id_seq = {}
     id_class = {}
     id_test = {}
-    id_train = []
 
     for i in range(0, len(all_data)):
         if all_data[i].startswith('>') and all_data[i] not in id_seq.keys():
@@ -38,13 +37,17 @@ def read_data():
 
     id_train = id_seq.keys() - id_test.keys()
     test_set = []
+    test_file = []
     for id in id_test.keys():
         id_seq[id].replace('U', 'X')
         id_seq[id].replace('Z', 'X')
         id_seq[id].replace('O', 'X')
         id_seq[id].replace('B', 'X')
         test_set.append((' '.join(id_seq[id]), id_class[id]))
-
+        test_file.append('>'+id+'\n'+id_seq[id] )
+    with open('./Datasets/test.fasta', 'w') as f:
+        for item in test_file:
+            f.write(item)
     train_set = []
     for id in id_train:
         id_seq[id].replace('U', 'X')
@@ -55,7 +58,7 @@ def read_data():
 
     return train_set, test_set
 
-
+train_set, test_set = read_data()
 
 class sc_dataset(Dataset):
     def __init__(self, data, labels):
