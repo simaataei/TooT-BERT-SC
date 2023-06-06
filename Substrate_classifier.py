@@ -12,13 +12,13 @@ from optuna.integration import PyTorchLightningPruningCallback
 class SubstrateClassifier(nn.Module):
     def __init__(self, num_classes, dropout_rate, learning_rate):
         super().__init__()
-        self.config = AutoConfig.from_pretrained("Rostlab/prot_bert_bfd")
+        self.config = AutoConfig.from_pretrained("Rostlab/prot_bert")
         self.num_class = num_classes
         self.dropout_rate = dropout_rate
-        self.bert = AutoModel.from_pretrained("Rostlab/prot_bert_bfd")
-        self.tokenizer = AutoTokenizer.from_pretrained("Rostlab/prot_bert_bfd")
+        self.bert = AutoModel.from_pretrained("Rostlab/prot_bert")
+        self.tokenizer = AutoTokenizer.from_pretrained("Rostlab/prot_bert")
         self.classifier = nn.Linear(self.config.hidden_size, num_classes)
-        self.dropout = nn.Dropout(dropout_rate)
+        #self.dropout = nn.Dropout(dropout_rate)
         self.learning_rate = learning_rate
 
     def forward(self, input):
